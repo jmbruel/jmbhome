@@ -1,0 +1,1023 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.8" />
+<title>Gestion basée modèles des exigences de systèmes complexes adaptatifs</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>Gestion basée modèles des exigences de systèmes complexes adaptatifs</h1>
+<span id="author">Jean-Michel Bruel (bruel@irit.fr)</span><br />
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph"><p>Laboratoire <a href="http://www.irit.fr">IRIT</a>&#8201;&#8212;&#8201;Thème 7&#8201;&#8212;&#8201;Equipe <a href="http://www.irit.fr/-Equipe-MACAO-">MACAO</a>
+<span class="image">
+<img alt="logo MACAO" width="20%" src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAdkAAAC6CAIAAABtMqAVAAABKWlDQ1BJQ0MgUHJvZmlsZQAAGJVj
+YGAycHRxcmUSYGDIzSspCnJ3UoiIjFJgv8DAwcDNIMxgzGCdmFxc4BgQ4MMABHn5eakMGODbNQZG
+EH1ZF2QWpjxewJVcUFQCpP8AsVFKanEyAwOjAZCdXV5SABRnnANkiyRlg9kbQOyikCBnIPsIkM2X
+DmFfAbGTIOwnIHYR0BNA9heQ+nQwm4kDbA6ELQNil6RWgOxlcM4vqCzKTM8oUTAyMDBQcEzJT0pV
+CK4sLknNLVbwzEvOLyrIL0osSU0BqoW4DwwEIQpBIaZhaGlpoUmivwkCUDxAWJ8DweHLKHYGIYYA
+yaVFZVAmI5MxYT7CjDkSDAz+SxkYWP4gxEx6GRgW6DAw8E9FiKkZMjAI6DMw7JsDAMOvUG/s7Vwn
+AAAACXBIWXMAABcSAAAXEgFnn9JSAAAgAElEQVR4nO3dd5gcxZ038AodJuxsTtJKKAeUEBImCGUZ
+I8AGfGefwek5Xg4bjNPZdwf34Pd93tcYE4wx9sG9xpwx4WwcMOY1BoQkBAgllHNYISSttHlndyfP
+dKr3jwUhW90107MzXTOr3+cvUNd21273fKe6uroKM8YQAAAAoYjoCgAAAIAsBgCAEgBZDAAA4kEW
+AwCAeJDFAAAgHmQxAACIB1kMAADiQRYDAIB4kMUAACAeZDEAAIgHWQwAAOJBFgMAgHiQxQAAIB5k
+MQAAiAdZDAAA4kEWAwCAeJDFAAAgHmQxAACIB1kMAADiQRYDAIB4kMUAACAeZDEAAIgHWQwAAOJB
+FgMAgHiQxQAAIB5kMQAAiAdZDAAA4kEWAwCAeJDFAAAgHmQxAACIB1kMAADiQRYDAIB4kMUAACAe
+ZDEAAIgHWQwAAOJBFgMAgHiQxQAAIB5kMQAAiAdZDAAA4kEWAwCAeJDFAAAgHmQxAACIB1kMAADi
+QRYDAIB4kMUAACAeZDEAAIgHWQwAAOJBFgMAgHiQxQAAIB5kMQAAiAdZDAAA4kEWAwCAeJDFAAAg
+HmQxAACIB1kMAADiQRYDAIB4kMUAACAeZDEAAIgHWQwAAOJBFgMAgHiQxQAAIB5kMQAAiAdZDAAA
+4kEWAwCAeJDFAAAgHmQxAACIB1kMAADiQRYDAIB4kMUAACAeZDEAAIgHWQwAAOJJoivgzvGtW2z/
+HWN8wbxLCKUe1+dsRiZzas8u201qsGL0zFke12dIMhXp6jvKKVBdOaq2qsWz+uSCMRZJGMmMqRlM
+MyzLYgU/BCFYlYkskQofrQyU0KfASPQl2/dwCqi149X6SZ7VJxeMsVgklUpqesbQddOyLG+OK8mS
+rFBFkSprAopSQicxP5ixwl/oxfPY9SuRQ4Xnf/amK758i8f1OdsbP/3xobWrbTc1Tpn6D4/8h8f1
+GfLKWz8+enIzp0BVqPnLN/yEUtmzKjnpGdT2Ho+1tid6I5pmeHdZ+mTSWK1MHxucMyFUUyH479D2
+hzujB1/lFFBqxk2+czWhimdVchLuiR7ac/pEa3e4N6ZrptjKVNUEmlpqps1umTS9WZJFtsnyVvZf
+Jmfs+MNvm6ZNn3jZFUKOfnDNKqcgFqi9+yA/iBFCkVjXrkOvXDLrRm+qZCulma9s7d11LCbk6Gnd
+autNt/Wm1+wML5hRfdXFdbIkpu8ucXIrP4gRQtrAyfCWpxquvN2bKtlKp7R1f9l7cNcpgXX4G5GB
+ZGQg2bq/vaLS94lPXzxxWrPoGrk2ovqL1z7y0GBHu/fH7Tv+/ts/f9z74/IxxtZveyaXklv3/jGR
+Gix2fZwYpvWr1e2igvhsDKGNBweff7tLyM0iY6xr9X25lOxd/7gR7y12fZwYhvmHpzaWVBCfLR5N
+v/jM5vcOdoiuiGsjKou1ZPK1++/V02lvD5p47f57TU3z8qC5OPz++u7wsVxKanpq067ni10fJ+v2
+9LeHM6KOfq4jpxPbWqPeHzey76VUx95cSlpavHvdj4tdHyeb1x3ubhf2zZ2j117YmU6V3EeSb0Rl
+MUIofOL4m4//1MsjvvHTRyKdJfclrBuZjTt/nXv5A0fX9fQfL159nBgm29oa8f64fJsPe501lp7q
+WvtQ7uUHdv0+1XWwePVxYhrWnndPeH9ctzJp/UCpttydjLQsRgi1vrVu3ysve3Os3X/+07FNG7w5
+lis7Dvw5nux38xNs/dani1QZjqMdiVTGo8fuuesZ1Dr7PW2q9236hRHrcvMTrGvV94tVG2fHj3aX
+S3vz0G7I4hLwzn/9vOvwoWIfpevwoU1PPVnso+Qhnghv3/+S25863X3g6IksD/oKrqOUeifO1h72
+rqdLj3b1bnzC7U8lTr4byfagr+BKv3fijN6uiGWW3Nc8x8jMYsswXnvgB6lIEa+bVDS66sH7LFPw
+UB5bG3c9bxj5ZNw7O54zTL3g9eHwuPmZuy4PK9a97mGmp/L4wa4191t5nei89XaVXIeSE9Ow+vvi
+omvhwsgZ0/Y3EuG+VQ/98Ibv31+MF0AYY2t+/GC8T9izbI7u8LFDx95y3o4RchwkEI337Dzw8qVz
+/q4I9bIXSxn8ArdfOzboK/wZ7BrI/PrNTk6BaMqjb9lUx77BPX903s47X/rg6fDmXzYs+loxKmYr
+Hs1yu/CFO5b4g6o3lXnn9QNH9vHGTcWj6fqmSm8qM3wjNosRQu1792x57ukF/3hrwfe8/XfPt+3c
+XvDdFsT6bU9zti699Jbt+1/idCVv2/fizMnLgoGawtfMTkbPchdZUyFV+At/lSYzWaJWy1axQul8
+/QecraNW/q/ejU9wupJ7N/xn9dzPyKHGIlTNhpbJ8t1ZWR0IhnzeVEZRs1wYWsbTm7xhGpl9FGfs
+/OPv39+8sbD7PL1n99bnnyvsPgvl6Mkt7d2OHeW1VWPmTLv6sos+y9mDbqRdDcAYpoxeoq99Zv2S
+KIjIoVXJtq1OW9X6ybUf+1Ljkm9y9mBpie43XAzAGKbySjdNy/LNUVJGeBYjhNb85OECvgCS6A+/
+/vD9zKs37l0xTH3DDt6XxML5XySEzpy8vLpyFKfYwWNvd/e9V+ja2TOLMNdEQXhQMcvIdK+5n1Og
+6aq7MaE1F39WqZ3AKTa458UcByYPXzHmBikeyyyn2o6QLMbE8RfRU8lX7/s/BXkBxDLN1x/6YWrQ
+5pEgpwKe2XPo1Uis22lrS9OMiWMvQQgRQhfMvYm7J/Y2t6MDFER46zPaQJvT1sC4yyqnrkAIYSI1
+Lf8Od0+sc9W9ha4d8Jr4BCmIMRfNVYMVTlv7206++dijwz/K5md/1XFgv+2miZcvGP7+hyOZjry7
+l/MICC265Mtn/nvK+AUN3KZWR8/hI8cL3LcDzmYkwr3rH+MUaL7q38/8d+WM63zNMzmFk6e2D+73
+aEw9KJIRksUY4bk38p7+t7795p6XXQ+5Pdvxd7fsevEPtpuoosy4auVwdj58W3b/XtOTTlunjl/Q
+XD/5zP9ijK+c9wX+DjfseC6/gXEgFz1vPWplHKfgqJr5yUDLRWf+F2PctOJf+TvsXvugpXv69j8o
+rBGSxVoqedENfxdqbOKU2fjLX3QeOpDf/qPdXWt/8iOnrXOuu15sH0V4oG1f6xqnrYRI5ybv+Ja5
+LU0zOPuMJfp2HPhzYepXPkJ+OrHZf9m0qoUziziSJN3T2r/jN05bMZHPTd7Q5CWBcZdx9qlH2vs2
+/aIw9QMijJQsTiYVv3/FN3ndapZprnrgvqRdby+fqWurHvhBJmE/bjxQU/uxmz6vpRzbpB5Yv/1Z
+xhwfJ1407eqqkM23VNam8bb9L8UT4eFWrlQRjOor5QvHBhfPqvn7K5tuv3bs/7x54t3/MPHWq8dc
+f3njnAmh4h26a/V9yPl81X7si0rNBef+e/OKf+Pvtnfjz/WoqxepQQkZOVmMEBpz0dzZ113PKZbo
+D7/u/mW5d558ouc9x6UxFn/1a0ogaGSE3R4eP73zZMdup62KHLh0zmdsN41unDb0NM+JYWQ2eDi+
+zUujatX//cXJ//zp8V9cPvrq+fXzJleObfD5FC/mII8dfSt+bL3TVqKGGhZ/w3ZTYOy80NSPc/bM
+9FTX2geHWz8gyAjJ4jPxuvDW2+onTOSUbN+/d/OzT+W+59a339z/2l+cts74xDWTr1x0dgU8Zlnm
+O9uf5RT42OxP+32OTbwFF38eIcz58cPvr+/sbc2/fqWKEkwJ7xcvEmYZ/EmKGxbeITm/aNO04l/4
+5yuy76XkafuFvkCJGyFZfAaVlZV3f0/2+zlldr34Qo6Tq/WfauMMwKgbP3HxV717/dTWvta1/ZHT
+TlsrAnUXz7iO8+P1NRdMn7iIf4j1254ur4W4Sln/jt9mnMduy5Wj6i7/H5wf9zVOq5p9A/8Qna/f
+C+erHI20LEYIVY9uWf71b/PLrH304YHTWabU09PpVQ/8wGlgsuz3r7z7HkkRuexYWkts3v1bToEF
+F98sZVsY7Yq5nyOYd2/e2dt65Pg7+dQP/DUzHe158xFOgcbl3yVSlskcmpZ9BxHeu7+p07si+/5f
+PvUDQo3ALEYITVm8dNY1vPagnkq9+sPv818AefPxn/a3nXTauuzOb9W0jMm/ioWwde8f087joupr
+xl04aXHWnVSFmmZNvYpfZsOO/9ZhfNuw9a5/zEwNOG31NV1YPefTWXei1IytnX8zv0zX2getvCZ+
+AwKNzCxGCC38p9vrxvM6jgdOta37mWMjZf+qV1vfWue0debKa6cuWTas+g3bYLRr9yHe9LWL5n8J
+45zO72UX/T2/+RxP9m/f9yd39QN/LdN/Mvzu05wCTVfdneP5alj8DSzx5t8xYl29G37uqnpAuBGb
+xZKiXPPvWTqOj77z9u4/20RM77H31j/xn04/VT9h4qLb7ihAFYdnw47nLMtx6pMLRs0Z1zI3x10F
+/TX8bmWE0I4Df44l+lzUD/y17jX3M8txYp3gxIWhHG5ihsgVDXWX38Iv07fpF1qk5Jb+AhwjNosR
+QtWjW5Zl6zje9NSTf/NacyaReO3+ey3D/mMj+/0r7/6e2G5ihNDprgPvtb3rvB0vvORLrnY4f9aN
+qhLkFDBMbcOO/3a1T3BG4sSW6OHXnbfjs994zkXDlbcTH29mXmaku9c+4GqfQKyRnMUIoamLl85c
+eS2ngGWaqx68LzHw0Xy+ax99ONrtOGB++de/XT26pZBVdI8xiz93z/SJixq5002cy6cEL5l1I7/M
+keMbOnoOu9otQAgxZvEnKa6ec6O/mfcO5Lmor7Lhytv5ZSL7X06c2uFqt0CgEZ7FCKFFt93B7zhO
+DvSfeQFk159eOL5lk1PJWddcN2Xx0oLX0K1Dx97udV6zmRJ5wcVZnu3YuvjCawP+an6Zt2F8m3uD
+e15Mdzm+fI+p0rj8u3nstu6yW6SKBn6ZrlUwvq1sjPwslhRl5d33yD7es46OA/s3Pf1fnQcPbHr6
+l05l6idOWnRblpaIB3Q9vXGn41QGCKG5F15bme0jakuS1Mu508wjhLr73uMu4FQ2LK8SytKS3W84
+zmSCEKq77BalKp87LSL7Gpd8i18m1bGHu4ATKCEjeY2lM2paxiz7+rdXP8zrPtv90ouH1qx2miRe
+9gdW3nUPlQV3EyOEtu9/KeE8LgohdPDYm0eO5/Qmy7k4k1qcsXHnbyaPu1yReQ9FS19HOPPM2o4x
+9eqYel9LvW9MnVqMlZwQQr0bnzDiPZwCA7tfiOzPcw4mZmV/27P7jR9VzriGch8GgFJwXmQxQmjq
+kmXt+/YeeJ03CMxp9h+E0PJviO8mRrnNnZZKR4tah0RqYPu+Py2Y9/miHsUDyYzZ2p5sbf9gUqfq
+oNRS7xtT7xtTr7bU+VS5ALeMWqQj69xpZjJc1NfnjXhP34b/27T8X4p5EFAA50sWI4QWfeWOriOH
+wicce1qdzLr2k1MWLSlGldzauPM3hqmJrgXaceDlmVM/XlXh0XqX3hhMGIOJ+IGTcYQQRujCC4Jf
+WDZ6mPvsWfcwM8TPKdy36cmaeTcp1YJfTQJ8I7+/+AxJUVbe/T1+x/G5GiZNXvRPXy1SlVzp6j16
++H3H+b28ZFr6hu0luvpqQTCEIonhLluZbN89uLckXpBhptbFXVgPlILzKIsRQjUtY5bemeVxx9mU
+QKl0EyOESmoNuqMnN7d3HxRdi5LWxR3H5rHowVcTJx0XnAal4PzKYoTQtKXLZ3zimhwLL//md6pG
+DfdGtSBaT2zq7D0iuhZ/5a2tv8rlWd/5KXLglWSJje3tXPV9OF+l7LzLYoTQ4q/cUTdufNZis6+7
+fmhuYuEMUy/Bd956+48feO9N0bUoRZaR6Sq9d97SXQcGd78guhbA0fmYxZKqZu04bpw8ZeGtX/Gs
+Sny7D70S5Y6LEmXTzuc1mA/sHOF3f6UPOk4qLVD3Gz8yM46DhYBY59E4irPVjBm79M5vrvnxQ7Zb
+lUDg6rvuobLsca1sJVORrXt5w/Ub6ybVVBalI2Uw1tntPPE5QiiZHty6948L538x70PIVMDiGrmQ
+pTwrZiT6etc/zingGzVbree9CJo3LXwi1bGHU8BI9PW+83jzx+/K+xCS5MUyVIUiyWVVW9EVEGba
+0hXt+/YeXL3q3E0rvvXdquZR3lfJ1ubdv+W0PSlVrl9+V0WgthiHTqYjT7/4dX7Ld9fBv8yeepXt
+2qa5KMgw3mJQpTwr1v3mTyzNse2JJXXczU/K+f65+IxEuPVnSzlHRwiFtzxVO/9m27VNc6Go5ZQY
+5VXbcqprwS3+yte6jxwOnzxx9j/O+dQNkxYsFFSjv9U3cHL/0Tc4BeZOv6ZIQYwQCviqLpl146Zd
+z3PKmJaxfvszn1qWZYliJ1mz+LGX23ARms5GtvcrlLy+JNLdhwd28lZaqbv0H4sUxAghKVhXv/D2
+nnUPc8owU+tcfd+4zz2R3yGyptuzj63DxThhdtIpxzlIh0AWlw1JVVfedc/v/vnrRuaDRSsap0y9
+8pbbxNbqbOu3PcN59q3KgY/Nzr4SxHDMm/HJPUdeTyT7OWWOtW091bl/7KhZeey/rlJu6+W9DRFL
+iVnUta4ynx6qztX3IefzRdRQw8Liznxdf/mt/dueM2LdnDKxw6vjxzdXTLgij/1X1wU72ngXQyJW
+Quu/VNeW05vfJXqH6JmasRcs+3DEsRIMrvy3UukmRggdP72jrXMvp8D8WTf61Iqi1kGS1Cvmfi5r
+sbe35Tm+rbkmy/JuooxyX7FY67rE+7yZQBquvJ36q4ZRqeyI7Gta9p2sxbpevze/89U4qrj1LyCf
+X66sDoiuhQvndbt4yLRlK/xV1XomXdU8qrK5WXR1PmBZ5vptz3AKBHzVWRfjKIiZk5ftOvhKeLCN
+U2aoL2V2tnXzzjWusRTnGMIIjW1wVzFmGZ2r7+MUkIL1WRfjKIjquZ/p2/JUpoc3Gj3dfWhg529r
+57ueVKRlXN0wquapMqrqkPO9XTzkgnnzJ11xZf2Eojzdzs/eI6sHorw1ci676DNytjWDCwJjkstI
+iU27ns9oCbc7H9vga6wuidcazzalJVAVdNdM6d/+ay38PqdAw5JvEk8mt8OYNH/87qzFutc9Yrqf
+RmrU2Nq6xlBe9fLarPnjRFfBHcjiUpTOxLfs+R2nQFWoadbUj3tWnwlj5o1tns0vk0pH392Tz6sE
+y+YU69ljfjBGS2a7q5KZivS89SingFJzQe28m4ZXLxdCU5YGJyzglzGT4Z71/5HHzq9YPj2vSnmq
+cVTVpOmlco+bI8jiUvTu3hfS3DH5V8y9iRJP+5cW5bCA3u7Drw1EO93uec6E0IILs6wn4qWV8+vH
+N7lrwPas/5mZGuQUaFz2HUw9fQ6RywJ6/e8+kwm7nrZw+pwx8xZMyqtSHglUqNd//lJCyyzcyqy6
+54OBaOeeQ69xCtTXjJs2wetRd411E6dPzLJQsWUZ72zn9XE7ue7ShpuXNNeGBD81ba5Rbv1Ey8KZ
+Na5+KhM+Ht76LKeAr+nCqlnXD69qrvlHzaqanWUBQ2bpXat/mMfOl39yzqduvrQERylQSmbOu+CW
+b6+orivuM+1igGd3JWfD9mctxhvIdeW8L3g2hPNsCy6++eiJTabFm0zy/VPb2zr2XjB6jtudzxof
+mjU+dLov3dqe6BnUeiJaKmNmdKYZRVkOiWCkSESRSYWPNlQrTdXK9DHBprwGdXStuR9x/yZNK/5V
+yPlqWv7d6MFXGXfC61jr2vj7Gyomuv5qnza7Zdrsls7TAydau/u6o+HeWDqpaRlD1wzPFtiTJCKr
+kqJIVbXBusZQc0vN5BmjVF+pjINyC8PShAAAIBz0UQAAgHiQxQAAIB5kMQAAiAdZDAAA4pXTOAot
+mUzHY8y0GWNAFSVYU4uJsK+W5EC/lk7bPizHGFFZDdbl+kZmKh3NaCmEHJ6pYqxIasAvYECuYeoZ
+LaHr/IWNsar4/b7K/A5hWkzXmcEs02SmxRDCCKFiPF3GGBGMLMYopZQwipEsS/lNk6nHupCuMYfz
+halE5CANCDhflp4y42HGHZODMCFqSMqreowxwzB13bRMhixkmCbCCLHinDA7mGCEEMGYUEIppTKR
+JYpKdELs7Mopi/vbTrTv25eOx87dVNnYNOOqq6ki7G3ath3b+0+fsh2UQggJNTbPuubaXPbDGOvt
+P9HRc9gw7Oe7IoQGA/UzpyyVqNe/7GC0o7vv6ECE9zaHROWW0bPH+ma62jNjzLRwMmPE02Z/TM8Y
+LJU2NdO0LGRZzCrOmDZKCMJMlahPIX6VVgf0kF9RZawoJPePM2MseXJbquug0/RsRKlQ6iZWXXgV
+9vx8pXsOx46+xXjfnZgGqgPjLpcCc13tmTGUSmW0tB6PZuKxtJbWM2lN1y1kWbphIk/iEGOEKcGI
+yDL2+RTVJwWrfKFQQPXLqk8mLs5hqSinLCZUVnw+y7QZyyn7fEzEEM4zqKKqgYBl2XwgMcaSP9fP
+Ica4sX5iPNmfTA9YdncACCFdTwxGO+trPH3d3jC1gUhHOpNQuJMqVFTUja6f5mrPjKGMbvVE9K4B
+LZ4+++RiQlCRP1RYMy0tZUVTRvcgC/q0upDUXK0GfJTkdjlhjAMTrjAS/aYWc2oPWulBLdKh1o4v
+ZMWzMTOJdNchQhXm/H4mpopaNykwaoarPVuWFR1MdZ8eSMQymcxH5wsjjAhVFK+X0rBMlExoyYQ2
+EE5K8mBlTaBpVGWoKkDLagkSVF5ZjCkhqk+ySyiiqJ7dGdmSfCpV/cSucYQJlWUXbSKfUlFbPQYP
+4pRmcweAECIY90faa6vGEOLd1RaN9+pmChMqORwUY4wRaa6fRqm7i8q0WF9UO92rMcTyXk2jIAyD
+9Q7qGJEx9USVc/0OkIP1asMUre89y+GtCmYZWn+bWjMWYe/Olz5wghkallTnXwPTQLW/ebrbBnsq
+nuloCyeTGkJIVksu72KRFGKIEBqq9gt5xSZv5ZTFVJIVvw/Z9X/JqiL2704lSfH7bOeExRgTmbfO
+6bnqq8cihsyBE069kLqRisb7qiuLtULE3zBNPRbvNS2LMzMcJjio1tZUulubyrRYIm32DGqShLy5
+t80qktQDcdJYrdCcryj/mDlmahClok69/FY6pkW7laqiLEtoczg9lQkfx9SHqWMDhVBZrhknVbW4
+2rNpmj3dUctgilS60aGl9ehAUpJpoKJEZ8e2Vbp/0HMRiVJFlkybv+9wJoBnzGIWQ4xhQvJ++kdl
+RVJVhywmkuqu6SFJamWoQddT8eQAsk0EjAei7ZUV9d40jWOJPs3ISMT5ysaYYqm5cbLbb8SMbsXT
+BiFYKaURPRnNSqXNCn+unw6qVPiaZ6S6DjHDvmlsMaYPdsgVjdjlTUN+tP4Tlsmwc28SJoT4Kn0N
+U9yer9hg2jQsIol7Sp6bjGYkYmnI4mLBhMiKDzObq0dSVPvMyoGWSqUGB0zDUHyBYF0dofmkG1Vk
+2eezbxVhLCuuvyp8aqgiWGuYmuXwUIhZVizRl/ein7kzTC2ZHsSIKM6te4xJyF/jV10Pn9B0K61Z
+aolNqWUYLJlhFW4ma5OrW4xol+Hca2yaKSPeIxe/aWzpKT3agxVO7wSiaoUcaspjkZFkMk0w8r5T
+2C1mmVpGtyxWRg/xyimLiSRTRbG9DaSynF8fRSaZTPT1JsL9CLGMHMOUVNTV57EfqsiSotrfomKE
+3M+XSDAJBmp1U0+mIg4tYxxL9IUq6kmReyHjyX6LMX6Xt0zV6up8UoYhjBGSSm01aIwMy0TIxVkj
+VFYaJlo9x7DTPEEM67EeKdSEi3wrow+cIkTC2PlPSohc2SxXuuud+OiHqURIGUxigzExDKv0vzbO
+KKssJoTIsv24MSmfPgrLMBL94UwiRYa6ODBODgwq/oAScL1MFqUKVez7KBDCii+feyVZ8gX9VYyZ
+usOdL0IokRgIVeTz5ZEj3Uin0nGECXV+wkMprfDXy5K7PnGEkMUQY4xgxGu7YFSUJwEsy6RYmCGL
+cSt2DinYoISiRjrGHOLYYsxMhqWKRjcVdcfUEno6wiSFU3HJF5KC9UR2fU2ahoWQRWXs3LPPMMJ5
+36G6xT+FhGLTNBGCLC4CQqmkKMSuq0pSlTyugFQkYuo6lSUqf/h3wCg5OEAVhbp8NEEkSfLZj+XA
+GOO8+j0wxj6lAlkonnJceTetxYOslnAaQcOTSscoIYQ5ftVhjChVg/m+LEAwkrljJ3IfXuaKyVg6
+Y3I+y5Rixtw9TcQYS5VNjDHLcBrSi41UhATqitfLb8T7CP9LERMaqCF5LVlrWZYkSYQ4LlqKEfIF
+VepVt0AynrEs5nSOKCW4DJrvHymnLMaEUNk+i6kkux3TpiWTeiZDKUV/HZTMYsnBgVB9g6u9UVmS
+DPv+E4Sx22T/aLdU9vkqdEsznWehTWeieXTU5sIwddPUKbeDhWAS8Nfk/WVACJIl3ke3wkf5YZ2f
+jGaZJm9mZIkOTSfrLlaoGrKCGZKKOK2yjAm1UhFcnNfwmJ5Gpka5g3awHKD+al4PBpckU8ty/JsQ
+goNBVZI9aopqmmE5vwhECbF7tFS6yimLCaVUkiy7VhKh1FW72NA0LZlEDp0blm5kEgk16GLZAirJ
+pmR/Z4pxnl0oQwiRAr5QKh1zuiPTtLSm8d9Lzh/GhPI+t1iWFFXJd+VzhsjQy1O8ChTl84QxooRw
+bnLzboxTX5VpGMxM2+Y4Q8jMxMyM/cjxAuAOFqaSgtUKMowlawnBnBwnpBj3MI6oRLFhOX1dYoxJ
+aYySzFE5ZTEmmCoyNu3axW7GtFmWpadSCCHqPLzByGQkRcl9t5gSSVVsP9sY5d8uRkN3vlRVZNPg
+LtAgBKWSIucbxAghjDBBlAr4wGCMKEGO97dDoZPXngmVkb8Sa4RZ3IkghFAryDDOF8ZYkgjnZoIQ
+Tldy4UmU2LbMzlQGlxqeqvgAAAOASURBVM8gClRmWYwJlSTbPgoi0dwbUEYmjTD6qI/YqZimYUpt
+D3cuSiXGHG+JyPAGxhNCJUlBmDm9+iEERpgSWRrGkpoYIYkSxO3VK1I7C2Msy9xYwTj/VJFUbJnI
+0EqqWYaJRCT/cEZxYIz5Pd0Yexp/hFLsfPFgjDlbS1BZZTHBhEoWtn/POMedGJrGGCJUyrq4FEPI
+yKQVf27tCEKI0zD+QlygQ522pt1cHKIQQmVpePPdYIz4gyiKmMWIYML5biPDGL9BCGWyyjCxfUdU
+CIYQln3Df9OEypgzV1PRHiE7H875GxMTlHe3uBDllMUIO04Vk+P7cpZlsaHpezDO7ZOGTV3Ppadi
+6A0Rp3x3O0WDzf4xwVSxnXtICIyJROkwr3WMEEHMcXbQD8oUq78YM+eHUB/0F7t+dvfR/qnCGGaW
+LnaalI9QSshwF+XEBBHT9l2rDwsUq3vfHiWEOX8iMCre8KKiKKcsxoRQidp+gjAhuVwFzDQJJa5a
+qYwxy7Ky9lRgjDG1L4QxLsjnEWMsUYW/RLQ3MEYYYeI8AVju+8mhh7E4WYwQ/5wSjPHweoQwpQgj
+VBq9xoTm/2LqGRhjQnkXM861iVMgmBHOwwbMhn+Jeqmc6oqG7v7svuxyuQIsyxpqPru+WHKIUkIp
+Zo6f7UJdoJRSzLDwplahbv2Gfo9sX3P5N065sN3LYwxjPNS4Y2y4Zw1jgggSO5XrhzVxN8rIeT8Y
+Z+tHZ4x5FseU8AZK4OHd2XivnLIYY8wYs72qsv7JP+g9yPcqyX6FcbcW8OokmDAksqfiwz9kQX4j
+hlGWP2zxxrQRhD68as7UAZ9doBBHIeiDtS4EKlhbNZec9bJdTChvVGLZwSPplwEAgDJVVp3bAAAw
+QkEWAwCAeJDFAAAgHmQxAACIB1kMAADiQRYDAIB4kMUAACAeZDEAAIgHWQwAAOJBFgMAgHiQxQAA
+IB5kMQAAiAdZDAAA4kEWAwCAeJDFAAAgHmQxAACIB1kMAADiQRYDAIB4kMUAACAeZDEAAIgHWQwA
+AOJBFgMAgHiQxQAAIB5kMQAAiAdZDAAA4kEWAwCAeJDFAAAgHmQxAACIB1kMAADiQRYDAIB4kMUA
+ACAeZDEAAIgHWQwAAOJBFgMAgHiQxQAAIB5kMQAAiAdZDAAA4kEWAwCAeJDFAAAgHmQxAACIB1kM
+AADi/X9BrwmKs1KDNQAAAABJRU5ErkJggg==" />
+</span></p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_direction_et_unité_d_8217_accueil">Direction et unité d&#8217;accueil</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Directeur : <a href="mailto:jean-michel.bruel@univ-tlse2.fr">Jean-Michel Bruel</a> (Tel. 05.62.74.75.40)
+</p>
+</li>
+<li>
+<p>
+Encadrant (à définir)
+</p>
+</li>
+<li>
+<p>
+Institut de Recherche en Informatique de Toulouse (<a href="http://www.irit.fr">IRIT</a>)
+</p>
+</li>
+<li>
+<p>
+Equipe :   <a href="http://www.irit.fr/-Equipe-MACAO-">MACAO</a>
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_argumentaire_scientifique_et_description">Argumentaire scientifique et description</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Dans cette thèse nous souhaitons explorer les nouvelles méthodes d&#8217;ingénierie des exigences dirigées par les modèles (IDM) dans le contexte des systèmes complexes (temps réel, embarqués, critiques, ambiants). Le développement des technique d&#8217;IDM ont adressés jusqu'à présent principalement le domaine de l&#8217;analyse et de la conception. Hors en ingénierie système se posent un certain nombre de verrous importants pour lesquels les techniques d&#8217;IDM pourraient apporter des solutions :</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+traçabilité des exigences
+</p>
+</li>
+<li>
+<p>
+analyse et organisation des exigences
+</p>
+</li>
+<li>
+<p>
+bibliothèques de patrons d&#8217;exigences
+</p>
+</li>
+<li>
+<p>
+suivit des exigences multi-fournisseurs, multi-niveaux
+</p>
+</li>
+<li>
+<p>
+&#8230;
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Fort d&#8217;une première thèse qui se termine sur l&#8217;utilisation des techniques RELAX/KAOS/SysML pour l&#8217;ingénierie des systèmes ambiants adaptatifs, nou souhaitons poursuivre les travaux en y intégrant une dimension méthodologique.</p></div>
+<div style="page-break-after:always"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_contexte">Contexte</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Nous espérons pouvoir financer cette thèse avec plusieurs sources de financement possibles (voir complémentaires)</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+montage d&#8217;un projet <a href="http://competitivite.gouv.fr/toutes-les-actualites/actualite-23/le-15e-appel-a-projets-du-fonds-unique-interministeriel-fui-est-ouvert-556.html?cHash=2a330d952aa1199529221d525bc2b502">FUI</a> en cours avec des partenaires industriels comme EADS, Freescale ou SAFRAN
+</p>
+</li>
+<li>
+<p>
+appels régions
+</p>
+</li>
+<li>
+<p>
+financement <a href="http://www.anrt.asso.fr/fr/espace_cifre/accueil.jsp">CIFRE</a> avec l&#8217;un des partenaires industriels
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_références">Références</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Using RELAX, SysML and KAOS for Ambient Systems Requirements Modeling. Manzoor Ahmad, Jean-Michel Bruel, Régine Laleau and Christophe Gnaho. 3rd Int. Conf. on Ambient Systems, Networks and Technologies (ANT) proceedings. Elsevier, Vol 10, p. 474-481, 2012.
+</p>
+</li>
+<li>
+<p>
+RELAX : A Language to Address Uncertainty in Self-Adaptive Systems Requirements. Jon Whittle, Pete Sawyer, Nelly Bencomo, Betty H. C. Cheng and Jean-Michel Bruel. <a href="http://www.springer.com/computer/swe/journal/766">Requirements Journal</a>, Springer-Verlag, 2010, Volume 15, Number 2, Pages 177–196.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2012-12-04 18:01:03 CET
+</div>
+</div>
+</body>
+</html>

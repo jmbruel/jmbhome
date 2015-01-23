@@ -1,0 +1,26 @@
+<% valid = image_tag("valid.png", :alt => "[Valid HTML 5]", :height => "20") %>
+<% mac = image_tag("madeonamac.gif", :alt => "[Made on a Mac]", :height => "20") %>
+<% best = image_tag("button_enhanced.gif", :alt => "[Viewable With Any Browser]", :height => "20") %>
+
+
+
+<footer>
+  <nav class="round">
+    <ul>
+      <li><%= link_to "Home", '/' %></li>
+      <li><%= link_to "Top", '#' %></li>
+      <li><%= link_to "About", 'about' %></li>
+      <li><%= link_to "Contact", 'contact' %></li>
+    </ul>
+  </nav>
+<div> 
+  Last update by <a href="mailto:bruel@irit.fr">JMB</a> 08/12/2014.
+<!--=========================================================-->
+<br/>
+  <%= mac %>
+  <a class="noicon" href="http://validator.w3.org/check?uri=referer"> 
+          <%= valid %> 
+        </a>
+  <a  class="noicon" href="http://www.anybrowser.org/campaign/"><%= best %></a>      
+</div>   
+</footer>

@@ -1,0 +1,1168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.5" />
+<title>SysML Models Animation (using Rhapsody tool)</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+pre {
+  padding: 0;
+  margin: 0;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #777777;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+tt {
+  font-family: monospace;
+  font-size: inherit;
+  color: navy;
+}
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+.monospaced {
+  font-family: monospace;
+  font-size: inherit;
+  color: navy;
+}
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([2-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName == 'DIV'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName == 'DIV' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>SysML Models Animation (using Rhapsody tool)</h1>
+<span id="author">Jean-Michel Bruel</span><br />
+<span id="email"><tt>&lt;<a href="mailto:bruel@iut-blagnac.fr">bruel@iut-blagnac.fr</a>&gt;</tt></span><br />
+<span id="revnumber">version 1.1 - 15/02/2012,</span>
+<span id="revdate">February 2012</span>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph"><p>In this practical work, we are going to experiment the <a href="http://www-01.ibm.com/software/rational/products/rhapsody/developer/">Rhapsody</a> tool, by implementing
+a simple example of a Stack data structure.
+This tutorial was originally presented at "Universidad Autonoma de Guadalajara"
+(<a href="http://www.uag.mx/">UAG</a>) for the undergraduated students in engineering.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tools">Tools</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Verify that you have the corresponding tool on your machine: <a href="http://www-01.ibm.com/software/rational/products/rhapsody/developer/">Rhapsody</a> 7.6</p></div>
+<div class="sect2">
+<h3 id="_let_8217_s_start">Let&#8217;s start</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Open a new project (select the SysML kind)
+</p>
+</li>
+<li>
+<p>
+Add some organisation (packages) if needed (right-click&#8594;add&#8594;)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><span class="image">
+<a class="image" href="images/Rhapsody/under-organisation.png">
+<img src="images/Rhapsody/under-organisation.png" alt="organization" height="300" />
+</a>
+</span></p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="ulist"><ul>
+<li>
+<p>
+An initial (Block Definition) Diagram is automatically generated and ready for you to start describing your system. If it is another diagram, add a new Block Definition Diagram by right-clicking in your project in the "Model view" (left part) and Add New &#8594; Diagrams &#8594; Block Definition Diagram.
+</p>
+</li>
+<li>
+<p>
+Click on the images of this tutorial to enlarge them
+</p>
+</li>
+</ul></div>
+</td>
+</tr></table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_block_definition_diagram">Block Definition Diagram</h3>
+<div class="paragraph"><p>Start with a description of the system in its environment (most of the time called "context"):</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+name your bdd into "Context"
+</p>
+</li>
+<li>
+<p>
+using the panel on the right, select a block and place one in the diagram
+</p>
+</li>
+<li>
+<p>
+notice the presence of the block you just defined in the model elements (Default Package)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><span class="image">
+<a class="image" href="images/Rhapsody/under-context.png">
+<img src="images/Rhapsody/under-context.png" alt="UC1" height="300" />
+</a>
+</span></p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+add the details of the stack (size, sizeMax)
+</p>
+</li>
+<li>
+<p>
+try different methods:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+right-click on your block in the diagram and "Add New" &#8594; "Attribute"
+</p>
+</li>
+<li>
+<p>
+right-click on yout block in the model view and do the same. What do you notice?
+</p>
+</li>
+<li>
+<p>
+play with the display property of your block in the diagram to show the last attribute.
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>There is two different "delete" in modeling tools: one delete from the diagram, the other from the model (all its occurences). Pay attention when deleting things. And as always save regularly. Tolls crash (especially on Windows ;-)</p></div>
+</td>
+</tr></table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_state_machine_diagram">State Machine Diagram</h3>
+<div class="paragraph"><p>We are now going to define the behavior of our Stack through a state machine.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Right-click on the block and add an new statechart
+</p>
+</li>
+<li>
+<p>
+Add 3 states (Empty, Full, Regular), as well as the entry (pseudo-)state
+</p>
+</li>
+<li>
+<p>
+Add transitions between them (according to push/pull events and according to the value of size and of sizeMax). If you really can&#8217;t find the state machine, here&#8217;s an
+<a href="file:images/Rhapsody/under-stm.png">answer</a>.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>In order to animate the model (see below), we need to provide precise default values and results of the events in the state machine (size++ when a push occurs for example).
+Make sure you provide those information.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_preparing_the_animation_of_your_model">Preparing the animation of your model</h3>
+<div class="paragraph"><p>We are provide the model elements used to show the results of the animation of
+the state machine.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Create a Panel Diagram (Right-click on your Project and Add&#8594;Diagrams&#8594;PanelDiagram).
+</p>
+</li>
+<li>
+<p>
+Find the corresponding diagram in the viewer and open it
+</p>
+</li>
+<li>
+<p>
+Using the panel on the right, place one "Level Indicator" and 3 "leds"
+</p>
+</li>
+<li>
+<p>
+Bind them to the corrsponding models elements:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+bind the level indicator to the stack&#8217;s size
+</p>
+</li>
+<li>
+<p>
+define the max value and the number of division in the "settings" folder
+</p>
+</li>
+<li>
+<p>
+do the same for the three leds (for the 3 states, play with colors)
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+<div class="paragraph"><p><span class="image">
+<a class="image" href="images/Rhapsody/under-panel1.png">
+<img src="images/Rhapsody/under-panel1.png" alt="Panel1" height="300" />
+</a>
+</span>
+<span class="image">
+<a class="image" href="images/Rhapsody/under-panel2.png">
+<img src="images/Rhapsody/under-panel2.png" alt="Panel2" height="300" />
+</a>
+</span></p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Create a new Package "Test", and add a new component (Add New &#8594; UML &#8594; Component)
+</p>
+</li>
+<li>
+<p>
+Setup the C++ language and choose your Stack as the "scope" of the component.
+</p>
+</li>
+<li>
+<p>
+Setup the configuration of the component by choosing the Stack as initialized instance.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><span class="image">
+<a class="image" href="images/Rhapsody/under-scope.png">
+<img src="images/Rhapsody/under-scope.png" alt="scope" height="300" />
+</a>
+</span></p></div>
+<div class="paragraph"><p><span class="image">
+<a class="image" href="images/Rhapsody/under-simu.png">
+<img src="images/Rhapsody/under-simu.png" alt="Simulation config" height="300" />
+</a>
+</span></p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+If you have time only,  create also a sequence diagram in your Test package with your Stack as a lifeline. This step is not mandatory.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><span class="image">
+<a class="image" href="images/Rhapsody/under-seq.png">
+<img src="images/Rhapsody/under-seq.png" alt="Seq. diag" height="300" />
+</a>
+</span></p></div>
+</div>
+<div class="sect2">
+<h3 id="_animation_of_the_model">Animation of the model</h3>
+<div class="paragraph"><p>Everything is ready now for animation.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Go to the "setting" part of your simulation configuration and make sure the Instrumentation mode is in "Animation".
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><span class="image">
+<a class="image" href="images/Rhapsody/under-animator.png">
+<img src="images/Rhapsody/under-animator.png" alt="config animation" height="300" />
+</a>
+</span></p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+"Build" (construct all the code generation) by clicking on the Generate/Make/Run Button.<span class="image">
+<a class="image" href="images/Rhapsody/under-make.png">
+<img src="images/Rhapsody/under-make.png" alt="Build" height="30" />
+</a>
+</span>
+</p>
+</li>
+<li>
+<p>
+If it is not opened, open the Animation panel.<span class="image">
+<a class="image" href="images/Rhapsody/under-animPanel.png">
+<img src="images/Rhapsody/under-animPanel.png" alt="Panel" height="30" />
+</a>
+</span>
+</p>
+</li>
+<li>
+<p>
+Click on "Go Iddle" to initiate the animation. See the corresponding State Machine, Panel Diagram and Sequence diagram initialisations!
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><span class="image">
+<a class="image" href="images/Rhapsody/under-anim1.png">
+<img src="images/Rhapsody/under-anim1.png" alt="Idle" height="300" />
+</a>
+</span></p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Click on "Go". the animation is now waiting for an event to occur.
+</p>
+</li>
+<li>
+<p>
+Click on the "Event Generator" and produce a push for example.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><span class="image">
+<a class="image" href="images/Rhapsody/under-anim2.png">
+<img src="images/Rhapsody/under-push.png" alt="Push" height="300" />
+</a>
+</span></p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+See your Stack growing as much as you push.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><span class="image">
+<a class="image" href="images/Rhapsody/under-anim2.png">
+<img src="images/Rhapsody/under-anim2.png" alt="Almost Full" height="300" />
+</a>
+</span></p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Until it reaches the "Full" state.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><span class="image">
+<a class="image" href="images/Rhapsody/under-anim3.png">
+<img src="images/Rhapsody/under-anim3.png" alt="Full" height="300" />
+</a>
+</span></p></div>
+</div>
+<div class="sect2">
+<h3 id="_other_sysml_diagrams">Other SysML diagrams</h3>
+<div class="paragraph"><p>Play around with the other SysML diagrams.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_report_on_your_project">Report on your project</h3>
+<div class="paragraph"><p>You can generate the documentation associated to your project (as a "souvenir" ;-):</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Click on Tools &#8594; ReporterPLUS &#8594; Report on all models elements,
+</p>
+</li>
+<li>
+<p>
+Select "Generate Micro$oft Word Document",
+</p>
+</li>
+<li>
+<p>
+Select "SysMLreport.tpl" as a report (for example),
+</p>
+</li>
+<li>
+<p>
+Choose a name (and a place) for your report.
+</p>
+</li>
+</ul></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="ulist"><ul>
+<li>
+<p>
+You can modify the documentation template
+</p>
+</li>
+<li>
+<p>
+You can generate also Powerpoint presentations instead!
+</p>
+</li>
+</ul></div>
+</td>
+</tr></table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tips_and_tricks">Tips and tricks</h2>
+<div class="sectionbody">
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<strong>save regularly</strong>
+</dt>
+<dd>
+<p>
+watch out the Murphy&#8217;s law
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>check regularly</strong>
+</dt>
+<dd>
+<p>
+use the power of tools
+</p>
+</dd>
+</dl></div>
+</td>
+</tr></table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_links">Links</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+A set of slides (in French) of the RadioClock case study from <a href="http://www.prfc.com/">Pascal Roques</a> is
+available <a href="http://goo.gl/GVhhX">here</a>.
+</p>
+</li>
+<li>
+<p>
+A video of an animation is also available <a href="http://dl.dropbox.com/u/946731/PRFC_RhapsodySimulation_1.0_Demo.mp4">here</a> in case you could not make it.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_about_8230">About&#8230;</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Document generated with <a href="http://www.methods.co.nz/asciidoc/">AsciiDoc</a> by <a href="mailto:bruel@iut-blagnac.fr">Jean-Michel Bruel</a>.
+<span class="image">
+<a class="image" href="http://creativecommons.org/licenses/by-sa/3.0/">
+<img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" alt="Licence Creative Commons" />
+</a>
+</span>
+<a href="http://creativecommons.org/licenses/by-sa/3.0/">licence Creative Commons Paternité - Partage à l&#39;Identique 3.0 non transposé</a>.</p></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Version 1.1 - 15/02/2012<br />
+Last updated 2012-02-18 02:52:58 CET
+</div>
+</div>
+</body>
+</html>

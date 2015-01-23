@@ -1,0 +1,166 @@
+!SESSION 2011-08-03 10:18:59.794 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_26
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=fr_FR
+Framework arguments:  -application com.aptana.ide.desktop.integration.Application -keyring /Users/bruel/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -application com.aptana.ide.desktop.integration.Application -keyring /Users/bruel/.eclipse_keyring -consoleLog -showlocation
+
+!ENTRY org.eclipse.ui.workbench 2 0 2011-08-03 10:19:04.062
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2011-08-03 10:19:04.062
+!MESSAGE Conflict for 'AUTOGEN:::org.rubypeople.rdt.refactoring.refactoringContext/org.rubypeople.rdt.refactoring.action.RenameAction':
+HandlerActivation(commandId=AUTOGEN:::org.rubypeople.rdt.refactoring.refactoringContext/org.rubypeople.rdt.refactoring.action.RenameAction,
+	handler=ActionDelegateHandlerProxy(null,org.rubypeople.rdt.refactoring.action.RenameAction),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1950e0a),sourcePriority=16384)
+HandlerActivation(commandId=AUTOGEN:::org.rubypeople.rdt.refactoring.refactoringContext/org.rubypeople.rdt.refactoring.action.RenameAction,
+	handler=ActionDelegateHandlerProxy(null,org.rubypeople.rdt.refactoring.action.RenameAction),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1950e0a),sourcePriority=16384)
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2011-08-03 10:19:04.062
+!MESSAGE Conflict for 'AUTOGEN:::org.rubypeople.rdt.refactoring.refactoringContext/org.rubypeople.rdt.refactoring.action.MoveFieldAction':
+HandlerActivation(commandId=AUTOGEN:::org.rubypeople.rdt.refactoring.refactoringContext/org.rubypeople.rdt.refactoring.action.MoveFieldAction,
+	handler=ActionDelegateHandlerProxy(null,org.rubypeople.rdt.refactoring.action.MoveFieldAction),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1950e0a),sourcePriority=16384)
+HandlerActivation(commandId=AUTOGEN:::org.rubypeople.rdt.refactoring.refactoringContext/org.rubypeople.rdt.refactoring.action.MoveFieldAction,
+	handler=ActionDelegateHandlerProxy(null,org.rubypeople.rdt.refactoring.action.MoveFieldAction),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1950e0a),sourcePriority=16384)
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2011-08-03 10:19:04.063
+!MESSAGE Conflict for 'AUTOGEN:::org.rubypeople.rdt.refactoring.refactoringContext/org.rubypeople.rdt.refactoring.action.EncapsulateFieldAction':
+HandlerActivation(commandId=AUTOGEN:::org.rubypeople.rdt.refactoring.refactoringContext/org.rubypeople.rdt.refactoring.action.EncapsulateFieldAction,
+	handler=ActionDelegateHandlerProxy(null,org.rubypeople.rdt.refactoring.action.EncapsulateFieldAction),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1950e0a),sourcePriority=16384)
+HandlerActivation(commandId=AUTOGEN:::org.rubypeople.rdt.refactoring.refactoringContext/org.rubypeople.rdt.refactoring.action.EncapsulateFieldAction,
+	handler=ActionDelegateHandlerProxy(null,org.rubypeople.rdt.refactoring.action.EncapsulateFieldAction),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1950e0a),sourcePriority=16384)
+
+!ENTRY org.eclipse.core.net 1 0 2011-08-03 10:19:05.360
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.rubypeople.rdt.launching 1 -1 2011-08-03 10:19:09.131
+!MESSAGE Starting: /System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby -I /Users/bruel/dev/jmb/.metadata/.plugins/org.rubypeople.rdt.launching/ruby/flush -rrdt_stream_sync.rb -- /System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/gem sources -l
+
+!ENTRY org.rubypeople.rdt.launching 1 -1 2011-08-03 10:19:09.157
+!MESSAGE Starting: /System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby -I /Users/bruel/dev/jmb/.metadata/.plugins/org.rubypeople.rdt.launching/ruby/flush -rrdt_stream_sync.rb -- /System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/gem -v
+
+!ENTRY org.rubypeople.rdt.launching 1 -1 2011-08-03 10:19:09.658
+!MESSAGE Starting: /System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby -I /Users/bruel/dev/jmb/.metadata/.plugins/org.rubypeople.rdt.launching/ruby/flush -rrdt_stream_sync.rb -- /System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/gem query -d
+
+!ENTRY org.rubypeople.rdt.launching 4 4 2011-08-03 10:19:12.118
+!MESSAGE Failed to retrieve platform for /System/Library/Frameworks/Ruby.framework/Versions/Current/usr
+
+!ENTRY org.eclipse.debug.core 4 125 2011-08-03 10:19:12.119
+!MESSAGE Error logged from Debug Core: 
+!STACK 0
+java.io.IOException: Bad file descriptor
+	at java.io.FileInputStream.readBytes(Native Method)
+	at java.io.FileInputStream.read(FileInputStream.java:220)
+	at java.lang.UNIXProcess$DeferredCloseInputStream.read(UNIXProcess.java:227)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:256)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:317)
+	at java.io.FilterInputStream.read(FilterInputStream.java:90)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.read(OutputStreamMonitor.java:144)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.access$1(OutputStreamMonitor.java:134)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor$1.run(OutputStreamMonitor.java:207)
+	at java.lang.Thread.run(Thread.java:680)
+
+!ENTRY org.eclipse.debug.core 4 125 2011-08-03 10:19:12.121
+!MESSAGE Error logged from Debug Core: 
+!STACK 0
+java.io.IOException: Stream closed
+	at java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:145)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:308)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:256)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:317)
+	at java.io.FilterInputStream.read(FilterInputStream.java:90)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.read(OutputStreamMonitor.java:144)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.access$1(OutputStreamMonitor.java:134)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor$1.run(OutputStreamMonitor.java:207)
+	at java.lang.Thread.run(Thread.java:680)
+
+!ENTRY org.rubypeople.rdt.launching 1 -1 2011-08-03 10:19:18.305
+!MESSAGE Starting: sudo -S -p Password: echo forced
+
+!ENTRY org.rubypeople.rdt.launching 1 -1 2011-08-03 10:19:18.407
+!MESSAGE Starting: sudo /System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby -I /Users/bruel/dev/jmb/.metadata/.plugins/org.rubypeople.rdt.launching/ruby/flush -rrdt_stream_sync.rb -- /System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/gem install -l mongrel-1.1.5.gem in working dir: /Users/bruel/dev/jmb/.metadata/.plugins/com.aptana.rdt
+
+!ENTRY org.rubypeople.rdt.launching 1 -1 2011-08-03 10:19:19.453
+!MESSAGE Starting: /System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby -I /Users/bruel/dev/jmb/.metadata/.plugins/org.rubypeople.rdt.launching/ruby/flush -rrdt_stream_sync.rb -- /System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/gem query -d
+
+!ENTRY com.aptana.ide.update 4 0 2011-08-03 10:19:21.395
+!MESSAGE download.aptana.com
+!STACK 0
+java.net.UnknownHostException: download.aptana.com
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:432)
+	at java.net.Socket.connect(Socket.java:529)
+	at java.net.Socket.connect(Socket.java:478)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:163)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:394)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:529)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:233)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:306)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:323)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:970)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:911)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:836)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1172)
+	at java.net.URLConnection.getContent(URLConnection.java:688)
+	at java.net.URL.getContent(URL.java:1024)
+	at com.aptana.ide.internal.update.manager.AbstractPluginManager$1.run(AbstractPluginManager.java:121)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY com.aptana.ide.update 4 0 2011-08-03 10:19:25.893
+!MESSAGE download.aptana.com
+!STACK 0
+java.net.UnknownHostException: download.aptana.com
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:432)
+	at java.net.Socket.connect(Socket.java:529)
+	at java.net.Socket.connect(Socket.java:478)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:163)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:394)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:529)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:233)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:306)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:323)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:970)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:911)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:836)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1172)
+	at java.net.URLConnection.getContent(URLConnection.java:688)
+	at java.net.URL.getContent(URL.java:1024)
+	at com.aptana.ide.internal.update.manager.AbstractPluginManager$1.run(AbstractPluginManager.java:121)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.rubypeople.rdt.launching 1 -1 2011-08-03 10:20:15.595
+!MESSAGE Starting: /System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby -r rubygems -e p(Gem.path) -I /Users/bruel/dev/jmb/.metadata/.plugins/org.rubypeople.rdt.launching/ruby/flush -rrdt_stream_sync.rb -- /System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/gem
+
+!ENTRY com.aptana.ide.core 4 0 2011-08-03 10:21:10.920
+!MESSAGE (Build 2.0.5.1278523018) [ERROR] An error occurred while shutting down the database
+!STACK 0
+java.sql.SQLException: No suitable driver found for jdbc:derby:aptanaDB;shutdown=true
+	at java.sql.DriverManager.getConnection(DriverManager.java:602)
+	at java.sql.DriverManager.getConnection(DriverManager.java:207)
+	at com.aptana.ide.core.db.AptanaDB.shutdown(AptanaDB.java:320)
+	at com.aptana.ide.core.AptanaCorePlugin.stop(AptanaCorePlugin.java:73)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:843)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.stop(BundleContextImpl.java:836)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.stopWorker(BundleHost.java:474)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.suspend(AbstractBundle.java:546)
+	at org.eclipse.osgi.framework.internal.core.Framework.suspendBundle(Framework.java:1098)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.decFWSL(StartLevelManager.java:593)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:261)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.shutdown(StartLevelManager.java:216)
+	at org.eclipse.osgi.framework.internal.core.InternalSystemBundle.suspend(InternalSystemBundle.java:266)
+	at org.eclipse.osgi.framework.internal.core.Framework.shutdown(Framework.java:685)
+	at org.eclipse.osgi.framework.internal.core.Framework.close(Framework.java:583)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.shutdown(EclipseStarter.java:409)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:200)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)

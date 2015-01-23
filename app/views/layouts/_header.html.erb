@@ -1,0 +1,38 @@
+<% jmbpix = image_tag("photo-cv3.jpg", :alt => "[JMB]", :class => "round") %>
+<% cnrspix = image_tag("logo-cnrs.jpg", :alt => "[Logo CNRS]", :class => "logo") %>
+<% iritpix = image_tag("logo-irit.png", :alt => "[Logo IRIT]", :class => "logo") %>
+<% utmpix = image_tag("logo-utm.png", :alt => "[Logo UTM]", :class => "logo") %>
+<% iutpix = image_tag("logo-IUT-Blagnac.png", :alt => "[Logo IUT]", :class => "logo") %>
+<% prespix = image_tag("logo-utoulouse.png", :alt => "[Logo PRES]", :class => "logo") %>
+   <header>
+        <div class="container">
+        <div class="span-4">
+          <%= link_to jmbpix, root_path %>
+        </div>  
+        <div class="span-18">
+          <h1>Jean-Michel Bruel</h1>
+          <ul>
+          	<li>Researcher at <a class="noicon" href=<%= iritUrl %>>IRIT</a> (CNRS Research Laboratory UMR 5505)</li>
+            <li>Professor at <a class="noicon" href=<%= presUrl %>>University of Toulouse</a>, France</li>
+            <li>Mainly teaching at <a class="noicon" href=<%= iutUrl %>>IUT de Blagnac</a></li>
+          </ul>
+        </div>
+		</div>
+        <nav class="round">
+          <ul>
+            <li><%= link_to "Home", '/' %></li>
+            <li><%= link_to "Publications", 'publis' %></li>
+            <li><%= link_to "Talks", 'talks' %></li>
+            <li><%= link_to "Projects", 'projects' %></li>
+            <li><%= link_to "Ph.Ds", 'phds' %></li>
+            <li><%= link_to "Teaching", 'teaching' %></li>
+            <li><%= link_to "Scientific/Animation", 'scientific' %></li>
+            <li><%= link_to "Professional", 'professional' %></li>
+            <li><%= link_to "Consultancy", 'acdc' %></li>
+            <li><%= link_to "Biography", 'bio' %></li>
+            <li><%= link_to "Fun", 'fun' %></li>
+            <li><%= link_to "About", 'about' %></li>
+            <li><%= link_to "Contact", 'contact' %></li>
+          </ul>
+        </nav>
+     </header>

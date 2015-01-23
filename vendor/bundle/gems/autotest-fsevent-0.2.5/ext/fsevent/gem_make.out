@@ -1,0 +1,2 @@
+/Users/bruel/.rvm/rubies/ruby-2.0.0-p247/bin/ruby extconf.rb 
+extconf.rb:25:in `<main>': Darwin 12 is not (yet) supported (RuntimeError)

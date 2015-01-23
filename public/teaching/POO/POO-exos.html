@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="AsciiDoc 8.6.8">
+<title>Exercices POO</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+@media screen {
+  body {
+    max-width: 50em; /* approximately 80 characters wide */
+    margin-left: 16em;
+  }
+
+  #toc {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 13em;
+    padding: 0.5em;
+    padding-bottom: 1.5em;
+    margin: 0;
+    overflow: auto;
+    border-right: 3px solid #f8f8f8;
+    background-color: white;
+  }
+
+  #toc .toclevel1 {
+    margin-top: 0.5em;
+  }
+
+  #toc .toclevel2 {
+    margin-top: 0.25em;
+    display: list-item;
+    color: #aaaaaa;
+  }
+
+  #toctitle {
+    margin-top: 0.5em;
+  }
+}
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install(2);
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>Exercices POO</h1>
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_classe_simple">1. Classe simple</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_enoncé">1.1. Enoncé</h3>
+<div class="paragraph"><p>Déﬁnir une classe <span class="monospaced">MaClasse</span> possédant les attributs suivants :</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+données : deux attributs de classes : <span class="monospaced">x = 23</span> et <span class="monospaced">y = x + 5</span>.
+</p>
+</li>
+<li>
+<p>
+méthode : une méthode affiche contenant un attribut d’instance <span class="monospaced">z = 42</span> et les affichages de <span class="monospaced">y</span> et de
+<span class="monospaced">z</span>.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Dans le programme principal, instanciez un objet de la classe <span class="monospaced">MaClasse</span> et invoquez la
+méthode <span class="monospaced">affiche</span>.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vecteur_2d">2. Vecteur 2D</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_enoncé_2">2.1. Enoncé</h3>
+<div class="paragraph"><p>Déﬁnir une classe <span class="monospaced">Vecteur2D</span> avec un constructeur fournissant les coordonnées par
+défaut d’un vecteur du plan (par exemple : <span class="monospaced">x = 0</span> et <span class="monospaced">y = 0</span>).</p></div>
+<div class="paragraph"><p>Dans le programme principal, instanciez un <span class="monospaced">Vecteur2D</span> sans paramètre, un <span class="monospaced">Vecteur2D</span>
+avec ses deux paramètres, et afﬁchez-les.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vecteur_2d_surcharge">3. Vecteur 2D : surcharge</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_enoncé_3">3.1. Enoncé</h3>
+<div class="paragraph"><p>Enrichissez la classe <span class="monospaced">Vecteur2D</span> précédente en lui ajoutant une méthode d’affichage
+et une méthode de surcharge d’addition de deux vecteurs du plan.</p></div>
+<div class="paragraph"><p>Dans le programme principal, instanciez deux <span class="monospaced">Vecteur2D</span>, affichez-les et affichez leur
+somme.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_héritage_simple">4. Héritage simple</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_enoncé_4">4.1. Enoncé</h3>
+<div class="paragraph"><p>Déﬁnir une classe <span class="monospaced">Rectangle</span> avec un constructeur donnant des valeurs (<span class="monospaced">longueur</span> et
+<span class="monospaced">largeur</span>) par défaut et un attribut <span class="monospaced">nom = "rectangle"</span>, une méthode d’afﬁchage et
+une méthode surface renvoyant la surface d’une instance.</p></div>
+<div class="paragraph"><p>Déﬁnir une classe <span class="monospaced">Carre</span> héritant de <span class="monospaced">Rectangle</span> et qui surcharge l’attribut d’instance :
+<span class="monospaced">nom = "carré"</span>.</p></div>
+<div class="paragraph"><p>Dans le programme principal, instanciez un <span class="monospaced">Rectangle</span> et un <span class="monospaced">Carre</span> et afﬁchez-les.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_points">5. Points</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_enoncé_5">5.1. Enoncé</h3>
+<div class="paragraph"><p>Définir une classe Point avec un constructeur fournissant les coordonnées par défaut
+d’un point du plan (par exemple : <span class="monospaced">x = 0.0</span> et <span class="monospaced">y = 0.0</span>).</p></div>
+<div class="paragraph"><p>Définir une classe Segment dont le constructeur possède quatre paramètres : deux
+pour l’origine et deux pour l’extrémité. Ce constructeur définit deux attributs : <span class="monospaced">orig</span>
+et <span class="monospaced">extrem</span>, instances de la classe <span class="monospaced">Point</span>. De cette manière, vous concevez une classe
+composite : la classe <span class="monospaced">Segment</span> est composée de deux instances de la classe <span class="monospaced">Point</span>.</p></div>
+<div class="paragraph"><p>Ajouter une méthode d’affichage.</p></div>
+<div class="paragraph"><p>Enﬁn écrire un auto-test qui affiche une instance de <span class="monospaced">Segment</span> initialisée par les valeurs
+1, 2, 3 et 4.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fermeture">6. Fermeture</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_enoncé_6">6.1. Enoncé</h3>
+<div class="paragraph"><p>Déﬁnir une fonction fabrique <span class="monospaced">creer_plus</span> renvoyant une fonction fermeture <span class="monospaced">plus</span>.
+La fonction <span class="monospaced">cree_plus</span> a un argument <span class="monospaced">ajout</span>. Son code ne renferme que la fonction <span class="monospaced">plus</span> qui,
+elle aussi, possède un argument <span class="monospaced">increment</span> et dont le code se contente de renvoyer
+la somme : (<span class="monospaced">ajout + increment</span>).</p></div>
+<div class="paragraph"><p>Dans le programme principal, créez deux fonctions, par exemple <span class="monospaced">p = creer_plus(23)</span>
+et <span class="monospaced">p = creer_plus(42)</span>, puis affichez les valeurs données par <span class="monospaced">p(100)</span> et <span class="monospaced">q(100)</span>.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fabrique">7. Fabrique</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_enoncé_7">7.1. Enoncé</h3>
+<div class="paragraph"><p>Écriture d’une fonction fabrique renvoyant une instance de classe.
+Définir une classe <span class="monospaced">CasNormal</span> contenant une méthode <span class="monospaced">uneMethode</span> qui affiche "normal".
+Définir une classe <span class="monospaced">CasSpecial</span> contenant une méthode <span class="monospaced">uneMethode</span> qui affiche "spécial".
+Enfin définir la fonction fabrique <span class="monospaced">casQuiConvient</span> avec un paramètre <span class="monospaced">estNormal</span> initialisé par défaut à <span class="monospaced">True</span>.
+Si le paramètre est vérifié, le corps de la fonction renvoie une
+instance de la classe <span class="monospaced">CasNormal</span>, sinon il renvoie une instance de la classe <span class="monospaced">CasSpecial</span>.</p></div>
+<div class="paragraph"><p>Dans le programme principal, créez l’instance que vous désirez grâce à la fabrique,
+puis vérifiez son type en appelant dessus la méthode <span class="monospaced">uneMethode</span></p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pile_et_file">8. Pile et File</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_enoncé_8">8.1. Enoncé</h3>
+<div class="paragraph"><p>Implanter des classes <span class="monospaced">Pile</span> et <span class="monospaced">File</span> utilisant les listes comme structure de données interne et
+respectant l’interface suivante (utiliser l’héritage) :</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.4
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-weight: bold"><span style="color: #0000FF">class</span></span> <span style="font-weight: bold"><span style="color: #000000">Base</span></span><span style="color: #990000">(</span>object<span style="color: #990000">):</span>
+<span style="font-weight: bold"><span style="color: #0000FF">def</span></span> <span style="font-weight: bold"><span style="color: #000000">pop</span></span><span style="color: #990000">(</span>self<span style="color: #990000">):</span>
+<span style="font-weight: bold"><span style="color: #0000FF">pass</span></span>
+<span style="font-weight: bold"><span style="color: #0000FF">def</span></span> <span style="font-weight: bold"><span style="color: #000000">push</span></span><span style="color: #990000">(</span>self<span style="color: #990000">,</span> elt<span style="color: #990000">):</span>
+<span style="font-weight: bold"><span style="color: #0000FF">pass</span></span></tt></pre></div></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_diagramme_de_classe_uml">9. Diagramme de classe UML</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_enoncé_9">9.1. Enoncé</h3>
+<div class="paragraph"><p>À partir du diagramme de classe suivant :</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="UML.png" src="data:image/png;base64,
+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
+7yoDXDbb6AAAAABJRU5ErkJggg==">
+</div>
+</div>
+<div class="paragraph"><p>Un collègue a commencé l&#8217;implémentation en Python :</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.4
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-style: italic"><span style="color: #9A1900">#!/usr/bin/env python</span></span>
+<span style="font-style: italic"><span style="color: #9A1900"># Student Class Diagram by John Doe 2012</span></span>
+
+<span style="font-weight: bold"><span style="color: #0000FF">class</span></span> Student<span style="color: #990000">:</span>
+<span style="font-style: italic"><span style="color: #9A1900">    'contains students, email, name ...'</span></span>
+
+    <span style="font-weight: bold"><span style="color: #0000FF">def</span></span> <span style="font-weight: bold"><span style="color: #000000">__init__</span></span><span style="color: #990000">(</span>self<span style="color: #990000">,</span> name <span style="color: #990000">=</span><span style="color: #FF0000">"John Doe"</span><span style="color: #990000">,</span> courses <span style="color: #990000">=[]):</span>
+       self<span style="color: #990000">.</span>name <span style="color: #990000">=</span> name
+       self<span style="color: #990000">.</span>courses <span style="color: #990000">=</span> courses
+       <span style="font-weight: bold"><span style="color: #0000FF">print</span></span> <span style="color: #FF0000">"Created a class instance for "</span><span style="color: #990000">+</span> name
+
+    <span style="font-weight: bold"><span style="color: #0000FF">def</span></span> <span style="font-weight: bold"><span style="color: #000000">printDetails</span></span><span style="color: #990000">(</span>self<span style="color: #990000">):</span>
+       <span style="font-weight: bold"><span style="color: #0000FF">print</span></span> <span style="color: #FF0000">"Name: "</span><span style="color: #990000">,</span> self<span style="color: #990000">.</span>name
+       <span style="font-weight: bold"><span style="color: #0000FF">print</span></span> <span style="color: #FF0000">"Courses: "</span><span style="color: #990000">,</span> self<span style="color: #990000">.</span>courses
+
+    <span style="font-weight: bold"><span style="color: #0000FF">def</span></span> <span style="font-weight: bold"><span style="color: #000000">enroll</span></span><span style="color: #990000">(</span>self<span style="color: #990000">,</span> course<span style="color: #990000">):</span>
+       self<span style="color: #990000">.</span>courses<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">append</span></span><span style="color: #990000">(</span>course<span style="color: #990000">)</span>
+
+student1 <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #000000">Student</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"Mary"</span><span style="color: #990000">,</span> <span style="color: #990000">[</span><span style="color: #FF0000">"L548"</span><span style="color: #990000">])</span>
+
+<span style="font-weight: bold"><span style="color: #0000FF">print</span></span> <span style="color: #FF0000">"Input the courses which"</span><span style="color: #990000">,</span> student1<span style="color: #990000">.</span>name<span style="color: #990000">,</span> <span style="color: #FF0000">"is enrolled in."</span>
+newcourse <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #000000">raw_input</span></span> <span style="color: #990000">(</span><span style="color: #FF0000">"Type the course number or 'stop' "</span><span style="color: #990000">)</span>
+
+<span style="font-weight: bold"><span style="color: #0000FF">while</span></span> newcourse <span style="color: #990000">!=</span> <span style="color: #FF0000">"stop"</span><span style="color: #990000">:</span>
+    student1<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">enroll</span></span><span style="color: #990000">(</span>newcourse<span style="color: #990000">)</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">print</span></span> <span style="color: #FF0000">"Input the courses which"</span><span style="color: #990000">,</span> student1<span style="color: #990000">.</span>name<span style="color: #990000">,</span> <span style="color: #FF0000">"is enrolled in."</span>
+    newcourse <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #000000">raw_input</span></span> <span style="color: #990000">(</span><span style="color: #FF0000">"Type the course number or 'stop' "</span><span style="color: #990000">)</span>
+
+student1<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">printDetails</span></span><span style="color: #990000">()</span></tt></pre></div></div>
+</div>
+<div class="sect2">
+<h3 id="_questions">9.2. Questions</h3>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Reprenez ce code et exécutez-le pour comprendre son fonctionnement
+</p>
+</li>
+<li>
+<p>
+Complétez le code pour être conforme au diagramme (attributs notamment)
+</p>
+</li>
+<li>
+<p>
+Créez une liste de <span class="monospaced">students</span>. Permettez aux utilisateurs de votre programme d&#8217;ajouter des nouveaux <span class="monospaced">students</span> à cette liste.
+</p>
+</li>
+<li>
+<p>
+Permettez à l&#8217;utilisateur de donner le nom d&#8217;un <span class="monospaced">student</span> et affichez les détails correspondants (si ce <span class="monospaced">student</span> existe).
+</p>
+</li>
+<li>
+<p>
+Créez une méthode <span class="monospaced">creditHours</span> qui calcule de crédits pour un <span class="monospaced">student</span> (en partant du principe que chaque <span class="monospaced">course</span> est de 3 crédits).
+</p>
+</li>
+<li>
+<p>
+Transformez votre programme en <strong>module</strong> <span class="monospaced">Student.py</span> qui puisse être importé (<span class="monospaced">from Student import *</span>) et un programme principal de test.
+</p>
+</li>
+<li>
+<p>
+Si vous avez simplement complétez le code fournit vous avez considéré que <span class="monospaced">courses</span> était un simple tableau de libellés. Remplacez cet attribut par un tableau d&#8217;objets. Vous pourrez vous inspirez en utilisant le générateur de code avec <a href="http://cruise.site.uottawa.ca/umpleonline/">UmpleOnline</a> par exemple.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2013-01-08 08:26:00 CET
+</div>
+</div>
+</body>
+</html>
